@@ -1,25 +1,21 @@
-import Card from "./components/Card";
+import React from "react";
+import DefaultPage from "./pages/DefaultPage";
+import ProtectedPage from "./pages/ProtectedPage";
 
 function App() {
-  const users = [
-    {
-      name: "Franco",
-      surname: "Mitrushi",
-      age: 24,
-    },
-    {
-      name: "Raffaele",
-      surname: "Tarantino",
-      age: 28,
-    },
-  ];
+  const [isLogged, setIsLogged] = React.useState(false);
 
-  return;
-  <div className="max-w-xl mx-auto py-12">
-    {users.map(({ name, surname, age }, key) => (
-      <Card key={key} name={name} surname={surname} age={age} />
-    ))}
-  </div>;
+  return (
+    <div className="max-w-xl mx-auto py-12">
+      <p>
+        {isLogged ? (
+          <ProtectedPage setIsLogged={setIsLogged} />
+        ) : (
+          <DefaultPage setIsLogged={setIsLogged} />
+        )}
+      </p>
+    </div>
+  );
 }
 
 export default App;
