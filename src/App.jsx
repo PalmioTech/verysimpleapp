@@ -3,6 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import useSWR, { mutate } from "swr";
 import { Button } from "./Button";
+import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
       {error && <div>Errore</div>}
       {isLoading && <Skeleton />}
       {data && (
-        <div className="flex flex-col items-center ">
-          <div>
+        <div>
+          <div className="flex flex-col items-center ">
             <img src={data.results[0].picture.large} className="p-4" />
             <div>
               <b className="text-2xl items-center">
@@ -34,8 +35,9 @@ function App() {
               <label>Phone: {data.results[0].cell}</label>
             </div>
           </div>
-          <div>
-            <Button onClick={changeCard} />
+          <div className="flex flex-col items-center">
+            <Button onClick={changeCard} text="Aggiorna" />
+            <ValueIncrement />
           </div>
         </div>
       )}

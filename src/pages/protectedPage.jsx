@@ -1,7 +1,7 @@
 function ProtectedPage({ setIsLogged }) {
   return (
     <div>
-      <div>Codice Segretissimo</div>
+      <div>Codice segretissimo</div>
       <div>
         <button type="button" onClick={() => setIsLogged(false)}>
           Esci
@@ -10,4 +10,5 @@ function ProtectedPage({ setIsLogged }) {
     </div>
   );
 }
+
 export default ProtectedPage;
