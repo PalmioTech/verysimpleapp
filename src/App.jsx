@@ -3,6 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import useSWR, { mutate } from "swr";
 import { Button } from "./Button";
+import { Clock } from "./components/Clock";
 import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
 
@@ -38,6 +39,9 @@ function App() {
           <div className="flex flex-col items-center">
             <Button onClick={changeCard} text="Aggiorna" />
             <ValueIncrement />
+          </div>
+          <div className="flex justify-center p-4">
+            <Clock />
           </div>
         </div>
       )}
