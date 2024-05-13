@@ -15,8 +15,15 @@ export function Login() {
       return { ...data, [name]: type === "checkbox" ? checked : value };
     });
   }
+  function resetData() {
+    setData({
+      username: "",
+      password: "",
+      friend: false,
+    });
+  }
   return (
-    <div className="flex flex-col items-center">
+    <form className="flex flex-col items-center">
       <div>
         <input
           name="username"
@@ -41,7 +48,8 @@ export function Login() {
       </div>
       <div>
         <button disabled={!data.username || !data.password}>Login</button>
+        <button onClick={resetData}>Reset</button>
       </div>
-    </div>
+    </form>
   );
 }
