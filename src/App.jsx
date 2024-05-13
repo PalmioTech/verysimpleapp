@@ -4,6 +4,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import useSWR, { mutate } from "swr";
 import { Button } from "./Button";
 import { Clock } from "./components/Clock";
+import { MouseClicker } from "./components/MouseClicker";
 import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
 
@@ -40,8 +41,14 @@ function App() {
             <Button onClick={changeCard} text="Aggiorna" />
             <ValueIncrement />
           </div>
-          <div className="flex justify-center p-4">
-            <Clock />
+          <div className="flex flex-col items-center p-4">
+            <div>
+              {" "}
+              <Clock />
+            </div>
+            <div>
+              <MouseClicker />
+            </div>
           </div>
         </div>
       )}
