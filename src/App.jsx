@@ -4,6 +4,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import useSWR, { mutate } from "swr";
 import { Button } from "./Button";
 import { Clock } from "./components/Clock";
+import { InteractiveWelcome } from "./components/InteractiveWelcome";
+import { Login } from "./components/Login";
 import { MouseClicker } from "./components/MouseClicker";
 import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
@@ -48,6 +50,12 @@ function App() {
             </div>
             <div>
               <MouseClicker />
+            </div>
+            <div>
+              <InteractiveWelcome />
+            </div>
+            <div>
+              <Login />
             </div>
           </div>
         </div>
