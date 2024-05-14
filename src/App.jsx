@@ -7,6 +7,7 @@ import { Clock } from "./components/Clock";
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { Login } from "./components/Login";
 import { MouseClicker } from "./components/MouseClicker";
+import { UncontrolledLogin } from "./components/UncontrolledLogin";
 import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
 
@@ -41,21 +42,13 @@ function App() {
           </div>
           <div className="flex flex-col items-center">
             <Button onClick={changeCard} text="Aggiorna" />
-            <ValueIncrement />
           </div>
           <div className="flex flex-col items-center p-4">
-            <div>
-              {" "}
-              <Clock />
-            </div>
-            <div>
-              <MouseClicker />
-            </div>
             <div>
               <InteractiveWelcome />
             </div>
             <div>
-              <Login />
+              <UncontrolledLogin />
             </div>
           </div>
         </div>
