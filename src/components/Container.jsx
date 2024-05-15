@@ -6,7 +6,7 @@ export function Container({ title, children }) {
     setReduce((r) => !r);
   }
   return (
-    <div className="bg-white border border-red-700">
+    <div className="bg-white border border-red-700 max-w-6xl mx-auto">
       {<h1 className="flex justify-center font-bold text-6xl">{title}</h1>}
       <button
         onClick={handleReducePage}
