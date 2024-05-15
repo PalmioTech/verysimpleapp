@@ -13,6 +13,7 @@ import { UncontrolledLogin } from "./components/UncontrolledLogin";
 import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
 import { ColorList } from "./components/Colors";
+import { Container } from "./components/Container";
 
 function App() {
   const { data, error, isLoading, mutate } = useSWR(
@@ -25,7 +26,7 @@ function App() {
   };
   // render data
   return (
-    <div className="max-w-xl mx-auto py-12">
+    <Container className="max-w-xl mx-auto py-12" title={"Verysimpleapp"}>
       {error && <div>Errore</div>}
       {isLoading && <Skeleton />}
       {data && (
@@ -75,7 +76,7 @@ function App() {
           </div>
         </div>
       )}
-    </div>
+    </Container>
   );
 }
 
