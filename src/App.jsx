@@ -4,12 +4,15 @@ import "react-loading-skeleton/dist/skeleton.css";
 import useSWR, { mutate } from "swr";
 import { Button } from "./Button";
 import { Clock } from "./components/Clock";
+import { Color } from "./components/Color";
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { Login } from "./components/Login";
 import { MouseClicker } from "./components/MouseClicker";
+import { Refs } from "./components/Refs";
 import { UncontrolledLogin } from "./components/UncontrolledLogin";
 import { ValueIncrement } from "./components/ValueButton";
 import { fetcher } from "./utils";
+import { ColorList } from "./components/Colors";
 
 function App() {
   const { data, error, isLoading, mutate } = useSWR(
@@ -45,10 +48,29 @@ function App() {
           </div>
           <div className="flex flex-col items-center p-4">
             <div>
-              <InteractiveWelcome />
+              <ValueIncrement />
             </div>
             <div>
-              <UncontrolledLogin />
+              <ColorList
+                colors={[
+                  {
+                    id: 1,
+                    name: "blue",
+                  },
+                  {
+                    id: 2,
+                    name: "red",
+                  },
+                  {
+                    id: 3,
+                    name: "green",
+                  },
+                  {
+                    id: 4,
+                    name: "orange",
+                  },
+                ]}
+              />
             </div>
           </div>
         </div>

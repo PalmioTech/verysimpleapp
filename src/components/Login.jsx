@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 
 export function Login() {
@@ -6,6 +7,10 @@ export function Login() {
     password: "",
     friend: false,
   });
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
   function handleDataInput(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -26,6 +31,7 @@ export function Login() {
     <form className="flex flex-col items-center">
       <div>
         <input
+          ref={inputRef}
           name="username"
           className="rounded-sm border border-gray-600 p-1"
           value={data.username}

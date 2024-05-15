@@ -1,8 +1,20 @@
 import { useState } from "react";
 import { Button } from "../Button";
 import { CounterDisplay } from "./CounterDisplay";
+import { useEffect } from "react";
+import { useRef } from "react";
+
 export function ValueIncrement() {
   const [counter, setter] = useState(0);
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      console.log("Montato per la prima volta");
+    } else if (counter.current === counter) {
+      console.log("modificato");
+    }
+  });
   function incrementCounter() {
     setter(counter + 1);
   }
