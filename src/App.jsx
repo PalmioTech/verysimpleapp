@@ -16,6 +16,8 @@ import { ColorList } from "./components/Colors";
 import { Container } from "./components/Container";
 import { useState } from "react";
 import { LanguageContext } from "./components/LanguageContainer";
+import { GithubUsers } from "./components/GithubUsers";
+import { GithubUser } from "./components/GithubUser";
 
 function App() {
   const { data, error, isLoading, mutate } = useSWR(
@@ -92,6 +94,10 @@ function App() {
                   },
                 ]}
               />
+            </div>
+            <div>
+              <GithubUser username={"PalmioTech"} />
+              <GithubUsers />
             </div>
           </div>
         </div>
