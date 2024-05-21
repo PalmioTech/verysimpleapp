@@ -1,22 +1,25 @@
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function InteractiveWelcome() {
-  const [name, setName] = useState("");
+  const { name } = useParams();
+  const navigate = useNavigate();
 
-  function handleName(event) {
-    const value = event.target.value;
-    setName(value);
+  function handleLogin() {
+    navigate("/login");
   }
   return (
     <div className="flex flex-col items-center">
-      <input
-        name="name"
-        value={name}
-        onChange={handleName}
-        className="rounded-sm border border-gray-600 p-1"
-        placeholder="Chi sei?"
-      />
-      <label>Ciao, {name}</label>
+      <label>Ciao {name}</label>
+
+      <div>
+        <button
+          className="font-bold rounded-lg bg-slate-700 text-white p-2 m-2"
+          onClick={handleLogin}
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 }
