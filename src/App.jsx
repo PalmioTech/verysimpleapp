@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="max-w-xl mx-auto py-12">
       <Routes>
-        {/* <Route path="/:name" element={<InteractiveWelcome />} />
-        <Route path="/login" element={<Login />} /> */}
+        <Route path="/:name" element={<InteractiveWelcome />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/users/:username" element={<GithubUser />} />
       </Routes>
     </div>
