@@ -1,8 +1,10 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { GithubUser } from "./components/GithubUser";
 import { Login } from "./components/Login";
+import { GithubUserList } from "./components/GithubUserList";
+import { PopupMenu } from "./components/PopUpMenu";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -10,7 +12,10 @@ function App() {
       <Routes>
         <Route path="/:name" element={<InteractiveWelcome />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/users/:username" element={<GithubUser />} />
+        <Route path="/users" element={<GithubUserList />}>
+          <Route index element={<PopupMenu />} />
+          <Route path=":username" element={<GithubUser />} />
+        </Route>
       </Routes>
     </div>
   );
