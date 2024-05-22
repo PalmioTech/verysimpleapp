@@ -1,10 +1,10 @@
 import React from "react";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
-function useGithubUsers() {
-  const { data, error, isLoading } = useSWR(
-    username !== null ? "https://api.github.com/users" : null,
+function useGithubUsers(user) {
+  const { data, error, isLoading, mutate } = useSWR(
+    user !== null ? "https://api.github.com/users" : null,
     fetcher
   );
 
@@ -12,10 +12,11 @@ function useGithubUsers() {
     users: data,
     error,
     isLoading,
+    mutate,
   };
 }
 export function GithubUserList() {
-  const { users, error, isLoading } = useGithubUsers();
+  const { users, error, isLoading, mutate } = useGithubUsers();
   return (
     <div>
       {error && <div>failed to load</div>}
@@ -28,6 +29,12 @@ export function GithubUserList() {
               <li key={user.id}>{user.login}</li>
             ))}
           </ul>
+          <button
+            className="p-2 bg-black text-white rounded-lg"
+            onClick={() => mutate()}
+          >
+            Aggiorna i dati
+          </button>
         </div>
       )}
     </div>
